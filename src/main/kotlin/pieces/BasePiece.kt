@@ -91,7 +91,7 @@ open class BasePiece(startingPosX: Int, startingPosY: Int, type: PieceType, boar
 
     open fun checkBack(): Boolean {
         val currentBoardState = currBoard.boardState()
-        if (!checkOutOfBounds()) return return currentBoardState[posY - 1][posX] != null else return false
+        if (!checkOutOfBounds()) return currentBoardState[posY - 1][posX] != null else return false
 
     }
 
@@ -110,7 +110,7 @@ open class BasePiece(startingPosX: Int, startingPosY: Int, type: PieceType, boar
     open fun checkDiagonals(): MutableList<Diagonals> {
         val state = currBoard.boardState()
 
-        var diagonalsList: MutableList<Diagonals> = mutableListOf()
+        val diagonalsList: MutableList<Diagonals> = mutableListOf()
         // Right forward
         if (!checkOutOfBounds() && state[posY + 1][posX + 1] != null) {
             diagonalsList.add(Diagonals.RF)

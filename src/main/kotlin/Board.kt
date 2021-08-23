@@ -16,7 +16,7 @@ open class Board {
 
     open fun drawBoard() {
         // white pawns and black pawns
-        for (i in 0..7) {
+        for (i in 0..8) {
             // white
 
             board[1][i] = Pawn(i, 0, this, Identifier.WHITE)
@@ -27,6 +27,22 @@ open class Board {
         }
 
 
+    }
+
+    open fun redrawBoard() {
+        board.forEachIndexed { colsIdx, cols ->
+            cols.forEachIndexed { pieceIdx, piece ->
+
+                if (piece == null) return
+                // old position
+                board[colsIdx][pieceIdx] = null
+
+
+                // new position
+                board[piece.posY][piece.posX] = piece
+
+            }
+        }
     }
 
 
